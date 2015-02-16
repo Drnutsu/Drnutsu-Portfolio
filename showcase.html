@@ -12,6 +12,7 @@
         <link rel="stylesheet" href="css/owl.carousel.min.css" />
         <link rel="stylesheet" type="text/css" href="css/canvas.css">
         <link rel="stylesheet" type="text/css" href="css/animate.css">
+        <link rel="stylesheet" type="text/css" href="css/animations.css">
         <style type="text/css">
             body {
                 /*margin-top: -100px;*/
@@ -28,10 +29,10 @@
               <div class = "btn btn-primary btn-fab btn-raised mdi-navigation-expand-more">
               </div>
           </div>
-        <div id="fullpage" style="top:-250px;">
+        <div id="fullpage" style="top:-300px;">
             <div class="section">
                 <div class="col-md-4 ">
-                    <div class="marvel-device nexus5" style="left:15%;">
+                    <div class="marvel-device nexus5 slideRight" style="left:15%;">
                         <div class="top-bar"></div>
                         <div class="sleep"></div>
                         <div class="volume"></div>
@@ -61,10 +62,20 @@
             </div>
 
             <div class="section">
-                <div class  = "col-md-4 col-md-offset-1 well">
-                    <b>CE SMART CAMP #6 WEBSITE</b>
+
+                <div class  = "col-md-4 col-md-offset-1 well font-detail">
+                    <div class = "web-content">
+                    	<b> CE Smart Camp #7 </b>
+	                    <p>
+	                    	CE Smart Camp Website for CE Smart Camp.
+	                    </p>
+                    </div>
+                   
                 </div>
-                <div class = "col-md-6 Maccontainer">
+                <div class="col-md-1">
+                	<div class = "next-owl pull-right btn btn-primary btn-fab btn-raised mdi-navigation-arrow-forward"></div>
+                </div>
+                <div class = "col-md-6 Maccontainer slideLeft">
                     <div class="mac">
                         <div class="pc">
                             <div class="camera"></div>
@@ -88,7 +99,7 @@
                                         <div class="box3"></div>
                                     </div>
                                 </div>
-                                <div class="owl-carousel" style="top:30px;">
+                                <div class="owl-carousel"  id = "web-slide" style="top:30px;">
                          
                                 <div style = "height:100%;width:630px;">
                                     <img  src="img/cesc.png" /> 
@@ -96,13 +107,18 @@
                                 <div style = "height:100%;width:630px;">
                                     <img  src="img/sellon.png" /> 
                                 </div>
-                                <div style = "height:100%;width:63	0px;">
+                                <div style = "height:100%;width:630px;">
                                     <img  src="img/matcha.png" /> 
+                                </div>
+
+                                <div style = "height:100%;width:630px;">
+                                    <img  src="img/asap.png" /> 
                                 </div>
 
                               <div class="owl-controls">
                                 <div class="owl-dots">
                                     <div class="owl-dot active"><span></span></div>
+                                    <div class="owl-dot"><span></span></div>
                                     <div class="owl-dot"><span></span></div>
                                 </div>
                                </div>
@@ -124,10 +140,10 @@
             </div>
             <div class="section">
 	            <div class="col-md-5 col-md-offset-1 well font-detail">
-                    <b> <span class = "glyphicon glyphicon-king"></span> Health App Challenge #1 </b>
+                    <b> <span class = "glyphicon glyphicon-king"></span> CAT App Awards #1 </b>
                     <p>
                     	Application name : Sell-D <br />
-                    	Details : Eat-D is application for your Health. It's collected nutrient which you got from meal and give a suggestion which food is good for your next meal. 
+                    	Details : Sell-D is application for SME retailers.We understand what is SME's problem is money management.and current POS is very expensive ,so we are developed android application for solve this problem.  
                     </p>
                 </div>
                     <div class="marvel-device nexus5" style="left:15%;-ms-transform: rotate(90deg); /* IE 9 */
@@ -158,11 +174,16 @@
               
             </div>
             <div class="section">
-            	<div class="col-md-5 col-md-offset-6 well font-detail ">
-                    <b> <span class = "glyphicon glyphicon-king"></span> Health App Challenge #1 </b>
+            	<div class="col-md-8 col-md-offset-2 well font-detail ">
+                    <b> LOGO Design for Eat-D applcation </b>
                     <p>
-                    	Application name : Sell-D <br />
-                    	Details : Eat-D is application for your Health. It's collected nutrient which you got from meal and give a suggestion which food is good for your next meal. 
+                    	this is UI set ,which I designed to Eat-D application <br />
+                    	<img style="width:15%;" class = "img-responsive pull-left" src="img/icon1.png" />
+                    	<img style="width:15%;" class = "img-responsive pull-left" src="img/icon2.png" />
+                    	<img style="width:15%;" class = "img-responsive pull-left" src="img/icon3.png" />
+                    	<img style="width:15%;" class = "img-responsive pull-left" src="img/icon4.png" />
+                    	<img style="width:15%;" class = "img-responsive pull-left" src="img/icon5.png" />
+                    	<img style="width:15%;" class = "img-responsive pull-left" src="img/icon6.png" />  
                     </p>
                 </div>
             </div>
@@ -189,12 +210,26 @@
                 $.material.init();
                 $('#fullpage').fullpage(); //fullpage slider
                 $("div.navbar-fixed-top").autoHidingNavbar();
-                $('.owl-carousel').owlCarousel({
+                var owl = $('.owl-carousel').owlCarousel({
                     items : 1
                 });
 
+                var web_owl = $('#web-slide').data('owlCarousel');
+
                 $(".arrow").click(function() {
                     $.fn.fullpage.moveSectionDown();
+                });
+                var web_slide = 1;
+                $('.next-owl').click(function() {
+                	web_owl.next();
+                	web_slide++;
+                	if(web_slide == 2){
+                		$(".web-content").html("<b> Sellon </b><p>Sellon is website base on best practice of OOP from OOAD Object Oriented Analysis and design) class</p>");
+                	}else if(web_slide == 3){
+                		$(".web-content").html("<b> Matcha </b><p>Matcha is my freelance work writen with Angular Dart from google.</p>");
+                	}else if(web_slide == 4){
+                		$(".web-content").html("<b> ASAP </b><p>ASAP is my project with my team at YWC Camp.It's got creative award.</p>");
+                	}
                 });
             });
         </script>
